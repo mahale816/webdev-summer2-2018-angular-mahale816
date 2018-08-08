@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <h2>Login</h2>
+  <label>
+    <b>Username:</b>
+  </label>
+  <input [(ngModel)]="username" class="form-control">
+  <label>
+    <b>Password:</b>
+  </label>
+  <input [(ngModel)]="password" type="password" class="form-control">
+  <br>
+  <button (click)="login(username, password)" class="btn btn-primary btn-block">Login</button>
+</div>
