@@ -1,14 +1,28 @@
 <div class="container-fluid">
-  <h2>Course Content</h2>
-  <div class="row">
-    <div *ngFor="let course of courses"  class="col-sm-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{course.title}}</h5>
-          <p class="card-text">Course Title</p>
-          <a routerLink="/course/{{course.id}}" class="btn btn-primary">Modules</a>
+  <h1 class="alignment">WhiteBoard</h1>
+  <h2>Courses:</h2>
+<div class="row">
+  <div *ngFor="let course of courses" class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{course.title}}</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <div class="float-left">
+        <a routerLink="/course/{{course.id}}"
+           class="btn btn-primary">View</a>
+        </div>
+        <div *ngIf="username !== 'admin'&& username !== '' && isEnrolled(course.id);">
+          <div class="float-right">
+        <a routerLink="/course/{{course.id}}/section"
+           class="btn btn-success">Enroll</a>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+  <div class="float-right"
+       *ngIf="username !== '';">
+    <button class="btn btn-danger" (click)="logout()">Logout </button>
   </div>
 </div>

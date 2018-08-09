@@ -1,0 +1,15 @@
+.list-group-item.active.webdev {
+  z-index: 2;
+  color: black;
+  background-color: white;
+}
+
+.alignment {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.padding {
+  padding-top: 10px;
+}

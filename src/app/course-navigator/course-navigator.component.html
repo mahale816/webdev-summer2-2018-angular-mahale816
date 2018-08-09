@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Course Navigator</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <h1 >Admin Page:</h1>
+  <div class="row">
+    <div class="col-6">
+      <ul class="list-group">
+        <li class="list-group-item active">Courses</li>
+        <li class="list-group-item webdev"
+            *ngFor="let course of courses"
+            (click)="selectCourse(course.id)"
+            [ngClass]="{'active': course.id === selectedCourseId}">
+          {{course.title}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-6">
+      <ul class="list-group">
+        <li class="list-group-item active">
+          Sections
+          <div class="float-right">
+            <div (click)="routeToSections()">
+              <button class="btn btn-success btn-default">Add</button>
+            </div>
+          </div>
+        </li>
+          <li class="list-group-item active webdev"
+              *ngFor="let section of sections">
+            {{section.name}}
+          </li>
+      </ul>
+    </div>
+  </div>
+  <div class="float-right padding">
+  <button class="btn btn-danger" (click)="logout()">Logout </button>
+  </div>
+</div>

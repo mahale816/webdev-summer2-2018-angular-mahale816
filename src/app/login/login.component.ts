@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Route, Router} from '@angular/router';
 import {UserServiceClient} from '../services/user.service.client';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,20 +9,19 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username: string;
-  password: string;
-
-  constructor(private route: Router,
-              private userService: UserServiceClient) { }
-
-  login = (username, password) => {
-    const user = {
-      username: username,
-      password: password
-    };
-    this.userService.login(user)
-      .then(u => this.route.navigate(['profile']));
+  username;
+  password;
+  login(username, password) {
+    username == null || password == null ? alert('Username or Password cannot be empty!') :
+    this.service
+      .login(username, password)
+      .then((user) => {
+        user == null ? alert('Incorrect credentials!') : this.router.navigate(['home']);
+      });
   }
+
+  constructor(private router: Router,
+              private service: UserServiceClient) { }
 
   ngOnInit() {
   }
