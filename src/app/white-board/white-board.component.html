@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">White Board</a>
+    <a class="navbar-brand">White Board</a>
     <div>
       <ul class="navbar-nav">
         <div *ngIf="username === '';">
@@ -25,4 +25,9 @@
     </div>
   </nav>
   <app-course-grid></app-course-grid>
+  <br/>
+  <div class="float-right"
+       *ngIf="username !== '';">
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
+  </div>
 </div>

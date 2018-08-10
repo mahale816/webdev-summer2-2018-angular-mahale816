@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <h1 class="alignment">WhiteBoard</h1>
   <h2>Courses:</h2>
-<div class="row">
+  <div class="row">
   <div *ngFor="let course of courses" class="col-sm-3">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{course.title}}</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">Course Title</p>
         <div class="float-left">
         <a routerLink="/course/{{course.id}}"
            class="btn btn-primary">View</a>
@@ -21,8 +21,4 @@
     </div>
   </div>
 </div>
-  <div class="float-right"
-       *ngIf="username !== '';">
-    <button class="btn btn-danger" (click)="logout()">Logout </button>
-  </div>
 </div>

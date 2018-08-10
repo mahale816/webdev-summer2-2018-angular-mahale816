@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-white-board',
@@ -8,9 +9,19 @@ import {UserServiceClient} from '../services/user.service.client';
 })
 export class WhiteBoardComponent implements OnInit {
 
-  constructor(private userService: UserServiceClient) { }
+  constructor(private service: UserServiceClient,
+              private userService: UserServiceClient,
+              private router: Router) { }
 
   username = '';
+
+  logout() {
+    this.service.logout()
+      .then(() => {
+        this.router.navigate(['login']);
+      });
+  }
+
   ngOnInit() {
     this.userService
       .profile()
