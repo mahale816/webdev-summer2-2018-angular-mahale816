@@ -5,3 +5,17 @@
 .padding {
   padding-top: 10px;
 }
+
+.move-down {
+  margin-top: 20px;
+}
+
+.cm-profile-container {
+  height: 10em;
+  position: relative;
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) }

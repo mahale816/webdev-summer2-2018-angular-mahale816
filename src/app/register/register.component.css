@@ -1,0 +1,14 @@
+.cm-style-home-margin {
+  margin-right: 10px;
+}
+
+
+.cm-register-container {
+  height: 10em;
+  position: relative;
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) }

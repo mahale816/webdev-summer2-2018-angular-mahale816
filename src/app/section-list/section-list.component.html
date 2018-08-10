@@ -1,20 +1,21 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">Sections</a>
-    <div>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/profile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="username === 'admin';" routerLink="/user-admin">Admin Page</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="navbar-brand">Sections</div>
+  <div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="username === 'admin';" routerLink="/user-admin">Admin Page</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid move-down">
+
   <div *ngIf="username === 'admin';">
     <h2>{{courseTitle}}</h2>
   </div>

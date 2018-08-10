@@ -8,3 +8,17 @@
 .padding-left {
   padding-left: 5px;
 }
+
+.move-down {
+  margin-top: 20px;
+}
+
+.cm-section-container {
+  height: 10em;
+  position: relative;
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) }
