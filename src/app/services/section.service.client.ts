@@ -1,21 +1,21 @@
 export class SectionServiceClient {
 
-  SECTION_URL = 'http://localhost:3000/api/course/COURSEID/section';
+  SECTION_URL = 'https://course-manager-node-server.herokuapp.com/api/course/COURSEID/section';
 
   findSectionsForStudent() {
-    const url = 'http://localhost:3000/api/student/section';
+    const url = 'https://course-manager-node-server.herokuapp.com/api/student/section';
     return fetch(url, {
       credentials: 'include'
     })
       .then(response => response.json());
   }
   findSectionById(sectionId) {
-    return fetch('http://localhost:3000/api/section/' + sectionId)
+    return fetch('https://course-manager-node-server.herokuapp.com/api/section/' + sectionId)
       .then(response => response.json());
   }
 
   enrollStudentInSection(sectionId) {
-    const url = 'http://localhost:3000/api/section/' + sectionId + '/enrollment';
+    const url = 'https://course-manager-node-server.herokuapp.com/api/section/' + sectionId + '/enrollment';
     return fetch(url, {
       method: 'post',
       credentials: 'include'
@@ -23,7 +23,7 @@ export class SectionServiceClient {
   }
 
   unEnrollStudentInSection(sectionId) {
-    const url = 'http://localhost:3000/api/section/' + sectionId + '/unenrollment';
+    const url = 'https://course-manager-node-server.herokuapp.com/api/section/' + sectionId + '/unenrollment';
     return fetch(url, {
       method: 'post',
       credentials: 'include'
@@ -48,14 +48,14 @@ export class SectionServiceClient {
   }
 
   deleteSection(sectionId) {
-    const sectionUrl = 'http://localhost:3000/api/section/' + sectionId;
+    const sectionUrl = 'https://course-manager-node-server.herokuapp.com/api/section/' + sectionId;
     return fetch(sectionUrl, {
       method: 'delete',
       credentials: 'include'
     });
   }
   updateSection(section, sectionId) {
-    return fetch('http://localhost:3000/api/section/' + sectionId, {
+    return fetch('https://course-manager-node-server.herokuapp.com/api/section/' + sectionId, {
       body: JSON.stringify(section),
       credentials: 'include', // include, same-origin, *omit
       method: 'put',
