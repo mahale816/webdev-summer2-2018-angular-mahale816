@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="navbar-brand">Quizzes</div>
+  <div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <h4 id="heading">Attempt:</h4>
+  <ul class="list-group">
+    <li *ngFor="let answer of answers"
+        class="list-group-item">
+      <h4>{{answer.title}}
+        <span class="float-right">Points: {{answer.points}}</span>
+      </h4>
+      <div [ngSwitch]="answer.questionType">
+
+        <div *ngSwitchCase="'ESSAY'">
+          <h5>{{answer.description}}</h5>
+          <p><span >Your Answer: </span>{{answer.essayAnswer}}</p>
+        </div>
+        <div *ngSwitchCase="'TRUE_FALSE'">
+          <h5>{{answer.description}}</h5>
+          <p><span >Your Answer: </span>{{answer.trueFalseAnswer}}</p>
+        </div>
+
+        <div *ngSwitchCase="'FILL_BLANKS'">
+          <h5>{{answer.description}}</h5>
+          <span >Your Answer: </span>
+          <span *ngFor="let blank of answer.blanks"
+                [ngSwitch]="blank.indexOf('*')">
+            <span *ngSwitchCase="-1"> {{blank}}  </span>
+            <span *ngSwitchCase="0">
+              {{blank}}
+            </span>
+            </span>
+        </div>
+        <div *ngSwitchCase="'CHOICE'">
+          <h5>{{answer.description}}</h5>
+          <li class="list-group-item"
+              *ngFor="let choice of answer.choices">
+              {{choice.text}}
+          </li>
+          <p>Your answer: {{answer.multipleChoiceAnswer}}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

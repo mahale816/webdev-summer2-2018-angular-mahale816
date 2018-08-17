@@ -10,11 +10,21 @@
         <a routerLink="/course/{{course.id}}"
            class="btn btn-primary">View</a>
         </div>
-        <div *ngIf="username !== 'admin'&& username !== '' && isEnrolled(course.id);">
-          <div class="float-right">
+        <div *ngIf="username !== 'admin'&& username !== '';">
+          <div *ngIf="isEnrolled(course.id)"
+               class="float-right">
         <a routerLink="/course/{{course.id}}/section"
            class="btn btn-success">Enroll</a>
           </div>
+          <div *ngIf="!isEnrolled(course.id)"
+               class="float-right">
+            <a routerLink="/course/{{course.id}}/quiz"
+               class="btn btn-success">Quizzes</a>
+          </div>
+        </div>
+        <div *ngIf="username === 'admin';">
+          <a routerLink="/course/{{course.id}}/quiz"
+             class="btn btn-success float-right">Quizzes</a>
         </div>
       </div>
     </div>

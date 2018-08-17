@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="navbar-brand">Quiz</div>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <br/>
+  <h4>
+    {{quiz.title}}
+  </h4>
+  <ul class="list-group">
+    <li *ngFor="let question of quiz.questions" class="list-group-item">
+      <h4>
+        {{question.title}}
+        <span class="float-right">{{question.points}}</span>
+      </h4>
+      <p>{{question.description}}</p>
+      <div [ngSwitch]="question.questionType">
+
+        <app-true-false-question
+          [question]="question"
+          *ngSwitchCase="'TRUE_FALSE'">
+        </app-true-false-question>
+
+        <app-fill-blanks-question
+          [question]="question"
+          *ngSwitchCase="'FILL_BLANKS'">
+        </app-fill-blanks-question>
+
+        <app-multiple-choice-question
+          [question]="question"
+          *ngSwitchCase="'CHOICE'">
+        </app-multiple-choice-question>
+
+        <app-essay-question
+          [question]="question"
+          *ngSwitchCase="'ESSAY'">
+        </app-essay-question>
+
+      </div>
+    </li>
+  </ul>
+  <br/>
+  <div class="btn-group">
+  <button class="btn btn-primary float-right"
+          (click)="submitQuiz(quiz)">
+    Submit
+  </button>
+  </div>
+</div>

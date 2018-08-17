@@ -1,11 +1,14 @@
 export class UserServiceClient {
 
+  // USER_URL = 'https://course-manager-node-server.herokuapp.com';
+  USER_URL = 'https://course-manager-node-server.herokuapp.com';
+
   findUserById(userId) {
-    return fetch('https://course-manager-node-server.herokuapp.com/api/user/' + userId)
+    return fetch( this.USER_URL + '/api/user/' + userId)
       .then(response => response.json());
   }
   findUserByUsername(username) {
-    return fetch('https://course-manager-node-server.herokuapp.com/api/user/' + username + '/username')
+    return fetch(this.USER_URL + '/api/user/' + username + '/username')
       .then(response => response.json());
   }
 
@@ -14,7 +17,7 @@ export class UserServiceClient {
       username: username,
       password: password,
     };
-    return fetch('https://course-manager-node-server.herokuapp.com/api/login', {
+    return fetch(this.USER_URL + '/api/login', {
       method: 'post',
       body: JSON.stringify(credentials),
       credentials: 'include',
@@ -26,14 +29,14 @@ export class UserServiceClient {
   }
 
   logout() {
-    return fetch('https://course-manager-node-server.herokuapp.com/api/logout', {
+    return fetch(this.USER_URL + '/api/logout', {
       method: 'post',
       credentials: 'include'
     });
   }
 
   profile() {
-    return fetch('https://course-manager-node-server.herokuapp.com/api/profile',
+    return fetch(this.USER_URL + '/api/profile',
       {
         credentials: 'include', // include, same-origin, *omit
       })
@@ -41,7 +44,7 @@ export class UserServiceClient {
   }
 
   updateUser(user) {
-    return fetch('https://course-manager-node-server.herokuapp.com/api/user', {
+    return fetch(this.USER_URL + '/api/user', {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit
       method: 'put',
@@ -63,7 +66,7 @@ export class UserServiceClient {
       phone: '',
       address: ''
     };
-    return fetch('https://course-manager-node-server.herokuapp.com/api/user', {
+    return fetch( this.USER_URL + '/api/user', {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit
       method: 'post',

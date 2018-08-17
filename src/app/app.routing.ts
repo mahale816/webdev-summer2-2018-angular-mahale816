@@ -6,10 +6,18 @@ import {RegisterComponent} from './register/register.component';
 import {ProfileComponent} from './profile/profile.component';
 import {SectionListComponent} from './section-list/section-list.component';
 import {CourseNavigatorComponent} from './course-navigator/course-navigator.component';
+import {QuizListComponent} from './quiz-list/quiz-list.component';
+import {QuizTakerComponent} from './quiz-taker/quiz-taker.component';
+import {QuizSubmissionComponent} from './quiz-submission/quiz-submission.component';
+import {QuizAnswerViewComponent} from './quiz-answer-view/quiz-answer-view.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: WhiteBoardComponent},
+  { path: 'course/:courseId/quiz', component: QuizListComponent },
+  { path: 'quiz/:quizId', component: QuizTakerComponent },
+  { path: 'course/:courseId/quiz/:quizId/submission', component: QuizSubmissionComponent},
+  { path: 'quiz/:quizId/submission/:submissionId', component: QuizAnswerViewComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'profile', component: ProfileComponent},
